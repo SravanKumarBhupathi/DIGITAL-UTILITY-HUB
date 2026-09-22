@@ -1,0 +1,46 @@
+<!--
+title: EMI Calculator | Digital Utility Hub
+description: Calculate your Equated Monthly Installment (EMI) for home loans, car loans, or personal loans.
+-->
+<div class="container py-4">
+    <div class="breadcrumbs">
+        <a href="{{base_url}}index.html">Home</a> <span class="separator">/</span> <a href="{{base_url}}calculators/index.html">Calculators</a> <span class="separator">/</span> <span>EMI Calculator</span>
+    </div>
+
+    <h1 class="mb-2">EMI Calculator</h1>
+    <p class="text-muted mb-4">Calculate your Equated Monthly Installment (EMI) for loans.</p>
+
+    <div class="grid grid-cols-2">
+        <div class="glass-panel">
+            <div class="form-group">
+                <label class="form-label">Loan Amount</label>
+                <input type="number" id="loanAmount" class="form-control" value="100000" min="0">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Interest Rate (% per annum)</label>
+                <input type="number" id="interestRate" class="form-control" value="10" min="0" step="0.1">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Loan Tenure (Years)</label>
+                <input type="number" id="loanTenure" class="form-control" value="5" min="0">
+            </div>
+            <button id="calculateEmiBtn" class="btn btn-primary btn-block">Calculate EMI</button>
+        </div>
+
+        <div class="glass-panel text-center" style="display: flex; flex-direction: column; justify-content: center;">
+            <h3 class="mb-2">Monthly EMI</h3>
+            <h2 id="emiResult" style="color: var(--primary-accent); font-size: 3rem;" class="mb-4">₹0.00</h2>
+
+            <div class="grid grid-cols-2 text-left mb-4">
+                <div>
+                    <span class="text-muted text-sm">Total Interest</span>
+                    <h4 id="totalInterestResult">₹0.00</h4>
+                </div>
+                <div>
+                    <span class="text-muted text-sm">Total Payment</span>
+                    <h4 id="totalPaymentResult">₹0.00</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

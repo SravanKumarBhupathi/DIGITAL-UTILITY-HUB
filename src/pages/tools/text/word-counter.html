@@ -1,0 +1,45 @@
+<!--
+title: Free Word & Character Counter | Digital Utility Hub
+description: Instantly count words, characters, and sentences in your text. Works offline in your browser.
+-->
+<div class="container py-4">
+    <div class="breadcrumbs">
+        <a href="{{base_url}}index.html">Home</a> <span class="separator">/</span> <a href="{{base_url}}tools/index.html">Tools</a> <span class="separator">/</span> <span>Word Counter</span>
+    </div>
+
+    <h1 class="mb-2">Word Counter</h1>
+    <p class="text-muted mb-4">Instantly count words, characters, and sentences. Processed locally in your browser.</p>
+
+    <div class="glass-panel">
+        <div class="grid grid-cols-4 mb-3 text-center">
+            <div>
+                <h2 id="wordCount" style="color: var(--primary-accent); margin-bottom: 0;">0</h2>
+                <span class="text-muted text-sm">Words</span>
+            </div>
+            <div>
+                <h2 id="charCount" style="color: var(--primary-accent); margin-bottom: 0;">0</h2>
+                <span class="text-muted text-sm">Characters</span>
+            </div>
+            <div>
+                <h2 id="charNoSpaceCount" style="color: var(--primary-accent); margin-bottom: 0;">0</h2>
+                <span class="text-muted text-sm">Chars (no space)</span>
+            </div>
+            <div>
+                <h2 id="sentenceCount" style="color: var(--primary-accent); margin-bottom: 0;">0</h2>
+                <span class="text-muted text-sm">Sentences</span>
+            </div>
+        </div>
+
+        <textarea id="textInput" class="form-control" rows="10" placeholder="Type or paste your text here..."></textarea>
+
+        <div class="mt-3" style="display: flex; gap: 1rem;">
+            <button id="clearBtn" class="btn btn-outline">Clear</button>
+            <button id="copyBtn" class="btn btn-primary">Copy Text</button>
+        </div>
+    </div>
+
+    <div class="mt-4 glass-panel">
+        <h3>How it works</h3>
+        <p class="text-muted text-sm">This tool counts text strictly within your browser using JavaScript. No text is sent to our servers, ensuring absolute privacy for your sensitive documents.</p>
+    </div>
+</div>
