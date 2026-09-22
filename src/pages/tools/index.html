@@ -12,23 +12,168 @@ description: A collection of free, simple, and fast digital tools including text
         <p class="text-muted">Simple, fast, and privacy-focused tools for everyday tasks.</p>
     </div>
 
-    <h2 class="mb-3">Text Tools</h2>
-    <div class="grid grid-cols-4 mb-4">
-        <a href="{{base_url}}tools/text/word-counter.html" class="glass-card tool-card">
-            <span class="icon">📝</span>
-            <h3>Word Counter</h3>
-        </a>
+    <!-- FILTER BUTTONS -->
+    <div class="flex gap-2 justify-center mb-4" style="flex-wrap: wrap;">
+        <button class="btn btn-outline active filter-btn" data-filter="all">All</button>
+        <button class="btn btn-outline filter-btn" data-filter="pdf">PDF Tools</button>
+        <button class="btn btn-outline filter-btn" data-filter="image">Image Tools</button>
+        <button class="btn btn-outline filter-btn" data-filter="text">Text Tools</button>
+        <button class="btn btn-outline filter-btn" data-filter="dev">Developer</button>
     </div>
 
-    <h2 class="mb-3">Developer Tools</h2>
-    <div class="grid grid-cols-4 mb-4">
-        <a href="{{base_url}}tools/developer/json-formatter.html" class="glass-card tool-card">
-            <span class="icon">{"}</span>
-            <h3>JSON Formatter</h3>
-        </a>
-        <a href="{{base_url}}tools/developer/password-generator.html" class="glass-card tool-card">
-            <span class="icon">🔑</span>
-            <h3>Password Generator</h3>
-        </a>
+    <!-- DYNAMIC LISTS INJECTED BY JS -->
+    <div id="favoritesSection" class="hidden mb-4">
+        <h2 class="mb-3">Favorites</h2>
+        <div id="favoritesGrid" class="grid grid-cols-4"></div>
+    </div>
+
+    <div id="recentSection" class="hidden mb-4">
+        <h2 class="mb-3">Recently Used</h2>
+        <div id="recentGrid" class="grid grid-cols-4"></div>
+    </div>
+
+    <div class="category-section" data-category="pdf">
+        <h2 class="mb-3">PDF Tools</h2>
+        <div class="grid grid-cols-4 mb-4">
+            <a href="{{base_url}}tools/pdf/merge.html" class="glass-card tool-card">
+                <span class="icon">📄</span>
+                <h3>Merge PDF</h3>
+            </a>
+            <a href="{{base_url}}tools/pdf/split.html" class="glass-card tool-card">
+                <span class="icon">✂️</span>
+                <h3>Split PDF</h3>
+            </a>
+        </div>
+    </div>
+
+    <div class="category-section" data-category="image">
+        <h2 class="mb-3">Image Tools</h2>
+        <div class="grid grid-cols-4 mb-4">
+            <a href="{{base_url}}tools/image/compressor.html" class="glass-card tool-card">
+                <span class="icon">📉</span>
+                <h3>Image Compressor</h3>
+            </a>
+            <a href="{{base_url}}tools/image/resizer.html" class="glass-card tool-card">
+                <span class="icon">📐</span>
+                <h3>Image Resizer</h3>
+            </a>
+            <a href="{{base_url}}tools/image/png-to-jpg.html" class="glass-card tool-card">
+                <span class="icon">🔄</span>
+                <h3>PNG to JPG</h3>
+            </a>
+        </div>
+    </div>
+
+    <div class="category-section" data-category="text">
+        <h2 class="mb-3">Text Tools</h2>
+        <div class="grid grid-cols-4 mb-4">
+            <a href="{{base_url}}tools/text/word-counter.html" class="glass-card tool-card">
+                <span class="icon">📝</span>
+                <h3>Word Counter</h3>
+            </a>
+            <a href="{{base_url}}tools/text/case-converter.html" class="glass-card tool-card">
+                <span class="icon">Aa</span>
+                <h3>Case Converter</h3>
+            </a>
+            <a href="{{base_url}}tools/text/remove-duplicates.html" class="glass-card tool-card">
+                <span class="icon">🧹</span>
+                <h3>Remove Duplicates</h3>
+            </a>
+            <a href="{{base_url}}tools/text/slug-generator.html" class="glass-card tool-card">
+                <span class="icon">🔗</span>
+                <h3>Slug Generator</h3>
+            </a>
+            <a href="{{base_url}}tools/text/text-cleaner.html" class="glass-card tool-card">
+                <span class="icon">🧼</span>
+                <h3>Text Cleaner</h3>
+            </a>
+        </div>
+    </div>
+
+    <div class="category-section" data-category="dev">
+        <h2 class="mb-3">Developer Tools</h2>
+        <div class="grid grid-cols-4 mb-4">
+            <a href="{{base_url}}tools/developer/json-formatter.html" class="glass-card tool-card">
+                <span class="icon">{"}</span>
+                <h3>JSON Formatter</h3>
+            </a>
+            <a href="{{base_url}}tools/developer/base64.html" class="glass-card tool-card">
+                <span class="icon">64</span>
+                <h3>Base64</h3>
+            </a>
+            <a href="{{base_url}}tools/developer/url-encoder.html" class="glass-card tool-card">
+                <span class="icon">URL</span>
+                <h3>URL Encoder</h3>
+            </a>
+            <a href="{{base_url}}tools/developer/uuid-generator.html" class="glass-card tool-card">
+                <span class="icon">ID</span>
+                <h3>UUID Generator</h3>
+            </a>
+            <a href="{{base_url}}tools/developer/timestamp-converter.html" class="glass-card tool-card">
+                <span class="icon">🕒</span>
+                <h3>Timestamp Converter</h3>
+            </a>
+            <a href="{{base_url}}tools/developer/password-generator.html" class="glass-card tool-card">
+                <span class="icon">🔑</span>
+                <h3>Password Generator</h3>
+            </a>
+            <a href="{{base_url}}tools/developer/random-number.html" class="glass-card tool-card">
+                <span class="icon">🎲</span>
+                <h3>Random Number</h3>
+            </a>
+        </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Render Favorites & Recents
+    if(window.DigitalUtils) {
+        const favs = window.DigitalUtils.getFavorites();
+        if(favs.length > 0) {
+            document.getElementById('favoritesSection').classList.remove('hidden');
+            const grid = document.getElementById('favoritesGrid');
+            favs.forEach(f => {
+                grid.innerHTML += `<a href="${f.url.replace('/tools/', '{{base_url}}tools/')}" class="glass-card tool-card">
+                    <span class="icon">${f.icon || '⭐'}</span>
+                    <h3>${f.title}</h3>
+                </a>`;
+            });
+        }
+
+        const recent = window.DigitalUtils.getRecentTools();
+        if(recent.length > 0) {
+            document.getElementById('recentSection').classList.remove('hidden');
+            const grid = document.getElementById('recentGrid');
+            recent.forEach(r => {
+                grid.innerHTML += `<a href="${r.url.replace('/tools/', '{{base_url}}tools/')}" class="glass-card tool-card" style="padding: 1rem;">
+                    <h3 style="font-size: 1rem; margin: 0;">${r.title}</h3>
+                </a>`;
+            });
+        }
+    }
+
+    // Filtering logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const sections = document.querySelectorAll('.category-section');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active', 'btn-primary'));
+            btn.classList.add('active', 'btn-primary');
+            btn.classList.remove('btn-outline');
+            filterBtns.forEach(b => { if(!b.classList.contains('active')) b.classList.add('btn-outline'); });
+
+            const target = btn.getAttribute('data-filter');
+
+            sections.forEach(sec => {
+                if(target === 'all' || sec.getAttribute('data-category') === target) {
+                    sec.classList.remove('hidden');
+                } else {
+                    sec.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+</script>

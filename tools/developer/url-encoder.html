@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Digital Utility Hub</title>
-    <meta name="description" content="Learn about Digital Utility Hub and our mission to provide free, private, and simple digital tools and calculators.">
-    <link rel="canonical" href="https://digitalutilityhub.com/about">
+    <title>URL Encoder / Decoder | Digital Utility Hub</title>
+    <meta name="description" content="Safely encode and decode URLs and query parameters in your browser.">
+    <link rel="canonical" href="https://digitalutilityhub.com/tools/developer/url-encoder">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" type="image/svg+xml" href="./assets/images/logo.svg">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/logo.svg">
 </head>
 <body>
     <header class="site-header">
     <div class="container nav-container">
-        <a href="./index.html" class="logo">
+        <a href="../../index.html" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
             Digital Utility Hub
         </a>
@@ -31,8 +31,8 @@
             </button>
 
             <nav class="nav-links">
-                <a href="./tools/index.html">Tools</a>
-                <a href="./calculators/index.html">Calculators</a>
+                <a href="../../tools/index.html">Tools</a>
+                <a href="../../calculators/index.html">Calculators</a>
             </nav>
 
             <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle theme" title="Switch to dark mode">
@@ -60,23 +60,28 @@
 
     <main>
 
-<div class="container py-4" style="max-width: 800px;">
+<div class="container py-4">
     <div class="breadcrumbs">
-        <a href="./index.html">Home</a> <span class="separator">/</span> <span>About</span>
+        <a href="../../index.html">Home</a> <span class="separator">/</span> <a href="../../tools/index.html">Tools</a> <span class="separator">/</span> <span>URL Encoder</span>
     </div>
-    <h1 class="mb-4">About Digital Utility Hub</h1>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+            <h1 class="mb-2">URL Encoder / Decoder</h1>
+            <p class="text-muted mb-4">Safely encode and decode URLs.</p>
+        </div>
+        <button id="favBtn_url-encoder" class="btn btn-outline btn-sm">☆ Favorite</button>
+    </div>
+
     <div class="glass-panel">
-        <p>Digital Utility Hub was created with a simple mission: to provide genuinely useful, fast, and privacy-respecting digital tools without the clutter.</p>
-        <p>In a web filled with ad-heavy, slow, and confusing utility sites, we set out to build a platform that respects your time and your data. Whenever technically possible, our tools process your files right in your browser, meaning your sensitive data never leaves your device.</p>
-        <h3 class="mt-4 mb-2">Our Core Principles</h3>
-        <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;" class="text-muted">
-            <li class="mb-2"><strong>Less Clicking, More Doing:</strong> We remove unnecessary steps to get you straight to the solution.</li>
-            <li class="mb-2"><strong>Privacy First:</strong> Browser-based processing wherever possible.</li>
-            <li class="mb-2"><strong>Mobile Optimized:</strong> Our tools work just as well on your phone as they do on a desktop.</li>
-            <li class="mb-2"><strong>No Mandatory Sign-ups:</strong> You shouldn't have to create an account just to format JSON or calculate an EMI.</li>
-        </ul>
-        <h3 class="mt-4 mb-2">Contact Us</h3>
-        <p>Have a suggestion for a new tool or found a bug? We'd love to hear from you. <a href="./contact.html">Contact us here</a>.</p>
+        <textarea id="urlInput" class="form-control mb-3" rows="4" placeholder="Paste your URL here..."></textarea>
+
+        <div class="grid grid-cols-2 mb-3">
+            <button id="urlEncodeBtn" class="btn btn-primary">URL Encode</button>
+            <button id="urlDecodeBtn" class="btn btn-outline">URL Decode</button>
+        </div>
+
+        <textarea id="urlOutput" class="form-control mb-3" rows="4" placeholder="Result will appear here..." readonly></textarea>
+        <button id="copyUrlBtn" class="btn btn-outline">Copy Result</button>
     </div>
 </div>
 
@@ -85,7 +90,7 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-col">
-                <a href="./index.html" class="logo mb-2">
+                <a href="../../index.html" class="logo mb-2">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
                     Digital Utility Hub
                 </a>
@@ -94,27 +99,27 @@
             <div class="footer-col">
                 <h4>Tools</h4>
                 <ul>
-                    <li><a href="./tools/index.html">All Tools</a></li>
-                    <li><a href="./tools/text/word-counter.html">Word Counter</a></li>
-                    <li><a href="./tools/developer/json-formatter.html">JSON Formatter</a></li>
+                    <li><a href="../../tools/index.html">All Tools</a></li>
+                    <li><a href="../../tools/text/word-counter.html">Word Counter</a></li>
+                    <li><a href="../../tools/developer/json-formatter.html">JSON Formatter</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Calculators</h4>
                 <ul>
-                    <li><a href="./calculators/index.html">All Calculators</a></li>
-                    <li><a href="./calculators/finance/emi-calculator.html">EMI Calculator</a></li>
-                    <li><a href="./calculators/everyday/age-calculator.html">Age Calculator</a></li>
+                    <li><a href="../../calculators/index.html">All Calculators</a></li>
+                    <li><a href="../../calculators/finance/emi-calculator.html">EMI Calculator</a></li>
+                    <li><a href="../../calculators/everyday/age-calculator.html">Age Calculator</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
-                    <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="./terms.html">Terms of Use</a></li>
-                    <li><a href="./disclaimer.html">Disclaimer</a></li>
+                    <li><a href="../../about.html">About</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                    <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="../../terms.html">Terms of Use</a></li>
+                    <li><a href="../../disclaimer.html">Disclaimer</a></li>
                 </ul>
             </div>
         </div>
@@ -124,13 +129,13 @@
     </div>
 </footer>
 
-    <script src="./assets/js/utils.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/search.js"></script>
-    <script src="./assets/js/tools.js"></script>
-    <script src="./assets/js/text-tools.js"></script>
-    <script src="./assets/js/image-tools.js"></script>
-    <script src="./assets/js/pdf-tools.js"></script>
-    <script src="./assets/js/calculators.js"></script>
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/search.js"></script>
+    <script src="../../assets/js/tools.js"></script>
+    <script src="../../assets/js/text-tools.js"></script>
+    <script src="../../assets/js/image-tools.js"></script>
+    <script src="../../assets/js/pdf-tools.js"></script>
+    <script src="../../assets/js/calculators.js"></script>
 </body>
 </html>

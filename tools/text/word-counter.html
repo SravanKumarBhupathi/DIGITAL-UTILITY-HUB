@@ -19,22 +19,44 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
             Digital Utility Hub
         </a>
-        <div class="search-bar" style="max-width: 300px; flex: 1; margin: 0 2rem;">
-            <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-            <input type="search" class="form-control search-input" placeholder="Search tools, guides...">
+
+        <div class="header-right">
+            <div class="search-bar">
+                <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <input type="search" class="form-control search-input" placeholder="Search tools, guides...">
+            </div>
+
+            <button class="mobile-search-trigger hidden" aria-label="Open search">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </button>
+
+            <nav class="nav-links">
+                <a href="../../tools/index.html">Tools</a>
+                <a href="../../calculators/index.html">Calculators</a>
+            </nav>
+
+            <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle theme" title="Switch to dark mode">
+                ☀️
+            </button>
+
+            <button class="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+                ☰
+            </button>
         </div>
-        <nav class="nav-links">
-            <a href="../../tools/index.html">Tools</a>
-            <a href="../../calculators/index.html">Calculators</a>
-            <a href="../../ai/index.html">AI</a>
-            <a href="../../how-to/index.html">How-To</a>
-            <a href="../../student/index.html">Students</a>
-        </nav>
-        <button class="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false">
-            ☰
-        </button>
     </div>
 </header>
+
+<!-- Mobile Keyboard-Safe Search Overlay -->
+<div id="mobileSearchOverlay">
+    <div class="mobile-search-header">
+        <input type="search" id="mobileSearchInput" class="form-control" placeholder="Search tools...">
+        <button class="mobile-search-close" aria-label="Close search">✕</button>
+    </div>
+    <div class="mobile-search-results" id="mobileSearchResults">
+        <!-- Results inject here -->
+        <div class="text-center text-muted" style="margin-top: 2rem;">Type to search</div>
+    </div>
+</div>
 
     <main>
 
@@ -43,11 +65,18 @@
         <a href="../../index.html">Home</a> <span class="separator">/</span> <a href="../../tools/index.html">Tools</a> <span class="separator">/</span> <span>Word Counter</span>
     </div>
 
-    <h1 class="mb-2">Word Counter</h1>
-    <p class="text-muted mb-4">Instantly count words, characters, and sentences. Processed locally in your browser.</p>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+            <h1 class="mb-2">Word Counter</h1>
+            <p class="text-muted mb-4">Instantly count words, characters, and sentences. Processed locally in your browser.</p>
+        </div>
+        <button id="favBtn_word-counter" class="btn btn-outline btn-sm" aria-label="Favorite this tool">☆ Favorite</button>
+    </div>
+
+    <div class="privacy-badge"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4zm0 2.18l7 3.12v4.7c0 4.67-3.13 8.95-7 10.12-3.87-1.17-7-5.45-7-10.12V7.3l7-3.12zM11 14H9l3-4h2l-3 4z"/></svg> Processed completely in your browser</div>
 
     <div class="glass-panel">
-        <div class="grid grid-cols-4 mb-3 text-center">
+        <div class="grid grid-cols-4 mb-3 text-center" style="grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));">
             <div>
                 <h2 id="wordCount" style="color: var(--primary-accent); margin-bottom: 0;">0</h2>
                 <span class="text-muted text-sm">Words</span>
@@ -64,11 +93,19 @@
                 <h2 id="sentenceCount" style="color: var(--primary-accent); margin-bottom: 0;">0</h2>
                 <span class="text-muted text-sm">Sentences</span>
             </div>
+            <div>
+                <h2 id="paragraphCount" style="color: var(--primary-accent); margin-bottom: 0;">0</h2>
+                <span class="text-muted text-sm">Paragraphs</span>
+            </div>
+            <div>
+                <h2 id="readTime" style="color: var(--primary-accent); margin-bottom: 0;">0m</h2>
+                <span class="text-muted text-sm">Reading Time</span>
+            </div>
         </div>
 
         <textarea id="textInput" class="form-control" rows="10" placeholder="Type or paste your text here..."></textarea>
 
-        <div class="mt-3" style="display: flex; gap: 1rem;">
+        <div class="mt-3" style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <button id="clearBtn" class="btn btn-outline">Clear</button>
             <button id="copyBtn" class="btn btn-primary">Copy Text</button>
         </div>
@@ -76,7 +113,7 @@
 
     <div class="mt-4 glass-panel">
         <h3>How it works</h3>
-        <p class="text-muted text-sm">This tool counts text strictly within your browser using JavaScript. No text is sent to our servers, ensuring absolute privacy for your sensitive documents.</p>
+        <p class="text-muted text-sm">This tool counts text strictly within your browser using JavaScript. No text is sent to our servers, ensuring absolute privacy for your sensitive documents. Reading time is estimated based on an average reading speed of 225 words per minute.</p>
     </div>
 </div>
 
@@ -124,9 +161,13 @@
     </div>
 </footer>
 
+    <script src="../../assets/js/utils.js"></script>
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/search.js"></script>
     <script src="../../assets/js/tools.js"></script>
+    <script src="../../assets/js/text-tools.js"></script>
+    <script src="../../assets/js/image-tools.js"></script>
+    <script src="../../assets/js/pdf-tools.js"></script>
     <script src="../../assets/js/calculators.js"></script>
 </body>
 </html>

@@ -1,0 +1,36 @@
+<!--
+title: Random Number Generator | Digital Utility Hub
+description: Generate random numbers within a specified range.
+-->
+<div class="container py-4">
+    <div class="breadcrumbs">
+        <a href="{{base_url}}index.html">Home</a> <span class="separator">/</span> <a href="{{base_url}}tools/index.html">Tools</a> <span class="separator">/</span> <span>Random Number Generator</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+            <h1 class="mb-2">Random Number Generator</h1>
+            <p class="text-muted mb-4">Generate random integers or decimals.</p>
+        </div>
+        <button id="favBtn_random-number" class="btn btn-outline btn-sm">☆ Favorite</button>
+    </div>
+
+    <div class="glass-panel" style="max-width: 600px; margin: 0 auto;">
+        <h2 id="randOutput" class="text-center mb-4" style="font-size: 4rem; color: var(--primary-accent);">0</h2>
+
+        <div class="grid grid-cols-2 mb-3">
+            <div class="form-group">
+                <label class="form-label">Minimum</label>
+                <input type="number" id="randMin" class="form-control" value="1">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Maximum</label>
+                <input type="number" id="randMax" class="form-control" value="100">
+            </div>
+        </div>
+        <div class="form-group mb-4">
+            <label class="flex items-center gap-2"><input type="checkbox" id="randDecimals"> Allow Decimals</label>
+        </div>
+
+        <button id="generateRandBtn" class="btn btn-primary btn-block">Generate</button>
+    </div>
+</div>

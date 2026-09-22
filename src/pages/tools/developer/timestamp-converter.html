@@ -1,0 +1,36 @@
+<!--
+title: Unix Timestamp Converter | Digital Utility Hub
+description: Convert Unix timestamps to human-readable dates and vice versa.
+-->
+<div class="container py-4">
+    <div class="breadcrumbs">
+        <a href="{{base_url}}index.html">Home</a> <span class="separator">/</span> <a href="{{base_url}}tools/index.html">Tools</a> <span class="separator">/</span> <span>Timestamp Converter</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+            <h1 class="mb-2">Timestamp Converter</h1>
+            <p class="text-muted mb-4">Convert Unix timestamps to dates and vice versa. Uses your local browser timezone.</p>
+        </div>
+        <button id="favBtn_timestamp-converter" class="btn btn-outline btn-sm">☆ Favorite</button>
+    </div>
+
+    <div class="grid grid-cols-2">
+        <div class="glass-panel">
+            <h3 class="mb-3">Timestamp to Date</h3>
+            <div class="form-group flex gap-2">
+                <input type="number" id="tsInput" class="form-control" placeholder="1700000000">
+                <button id="tsConvertBtn" class="btn btn-primary">Convert</button>
+            </div>
+            <div id="tsOutput" class="text-muted" style="min-height: 2rem;"></div>
+        </div>
+
+        <div class="glass-panel">
+            <h3 class="mb-3">Date to Timestamp</h3>
+            <div class="form-group flex gap-2">
+                <input type="datetime-local" id="dateInput" class="form-control">
+                <button id="dateConvertBtn" class="btn btn-primary">Convert</button>
+            </div>
+            <div id="dateOutput" class="text-muted" style="min-height: 2rem; font-family: monospace;"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<!--
+title: URL Encoder / Decoder | Digital Utility Hub
+description: Safely encode and decode URLs and query parameters in your browser.
+-->
+<div class="container py-4">
+    <div class="breadcrumbs">
+        <a href="{{base_url}}index.html">Home</a> <span class="separator">/</span> <a href="{{base_url}}tools/index.html">Tools</a> <span class="separator">/</span> <span>URL Encoder</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+            <h1 class="mb-2">URL Encoder / Decoder</h1>
+            <p class="text-muted mb-4">Safely encode and decode URLs.</p>
+        </div>
+        <button id="favBtn_url-encoder" class="btn btn-outline btn-sm">☆ Favorite</button>
+    </div>
+
+    <div class="glass-panel">
+        <textarea id="urlInput" class="form-control mb-3" rows="4" placeholder="Paste your URL here..."></textarea>
+
+        <div class="grid grid-cols-2 mb-3">
+            <button id="urlEncodeBtn" class="btn btn-primary">URL Encode</button>
+            <button id="urlDecodeBtn" class="btn btn-outline">URL Decode</button>
+        </div>
+
+        <textarea id="urlOutput" class="form-control mb-3" rows="4" placeholder="Result will appear here..." readonly></textarea>
+        <button id="copyUrlBtn" class="btn btn-outline">Copy Result</button>
+    </div>
+</div>

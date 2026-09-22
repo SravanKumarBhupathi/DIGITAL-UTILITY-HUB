@@ -1,0 +1,56 @@
+<!--
+title: Free Image Compressor | Digital Utility Hub
+description: Compress JPG, PNG, and WebP images directly in your browser. No files are uploaded to any server.
+-->
+<div class="container py-4">
+    <div class="breadcrumbs">
+        <a href="{{base_url}}index.html">Home</a> <span class="separator">/</span> <a href="{{base_url}}tools/index.html">Tools</a> <span class="separator">/</span> <span>Image Compressor</span>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+            <h1 class="mb-2">Image Compressor</h1>
+            <p class="text-muted mb-4">Reduce image file size instantly in your browser.</p>
+        </div>
+        <button id="favBtn_image-compressor" class="btn btn-outline btn-sm">☆ Favorite</button>
+    </div>
+
+    <div class="privacy-badge"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4zm0 2.18l7 3.12v4.7c0 4.67-3.13 8.95-7 10.12-3.87-1.17-7-5.45-7-10.12V7.3l7-3.12zM11 14H9l3-4h2l-3 4z"/></svg> Processed completely in your browser</div>
+
+    <div class="glass-panel">
+        <div id="imgDropArea" class="file-drop-area mb-4">
+            <span class="icon">🖼️</span>
+            <h3>Drag & Drop Image Here</h3>
+            <p class="text-muted text-sm">or click to browse</p>
+            <input type="file" id="imgInput" class="file-input" accept="image/jpeg, image/png, image/webp">
+        </div>
+
+        <div id="imgWorkspace" class="hidden">
+            <div class="grid grid-cols-2 mb-4">
+                <div>
+                    <h4 class="mb-1">Original</h4>
+                    <img id="imgPreviewOriginal" style="max-width: 100%; max-height: 200px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-color);">
+                    <div id="imgSizeOriginal" class="text-muted text-sm mt-1"></div>
+                </div>
+                <div>
+                    <h4 class="mb-1">Compressed</h4>
+                    <img id="imgPreviewCompressed" style="max-width: 100%; max-height: 200px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-color);">
+                    <div id="imgSizeCompressed" class="text-muted text-sm mt-1"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label flex justify-between">
+                    <span>Quality</span>
+                    <span id="qualityVal">80%</span>
+                </label>
+                <input type="range" id="imgQuality" class="form-control" min="0" max="100" value="80">
+            </div>
+
+            <div class="flex gap-3">
+                <button id="downloadImgBtn" class="btn btn-primary flex-1">Download Compressed</button>
+                <button id="resetImgBtn" class="btn btn-outline">Start Over</button>
+            </div>
+        </div>
+    </div>
+</div>

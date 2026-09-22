@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free JSON Formatter & Validator | Digital Utility Hub</title>
-    <meta name="description" content="Format, validate, and beautify JSON data instantly in your browser.">
-    <link rel="canonical" href="https://digitalutilityhub.com/tools/developer/json-formatter">
+    <title>Split PDF | Digital Utility Hub</title>
+    <meta name="description" content="Advanced PDF Splitter. Split a PDF into multiple separate files right in your browser securely.">
+    <link rel="canonical" href="https://digitalutilityhub.com/tools/pdf/split">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -62,26 +62,83 @@
 
 <div class="container py-4">
     <div class="breadcrumbs">
-        <a href="../../index.html">Home</a> <span class="separator">/</span> <a href="../../tools/index.html">Tools</a> <span class="separator">/</span> <span>JSON Formatter</span>
+        <a href="../../index.html">Home</a> <span class="separator">/</span> <a href="../../tools/index.html">Tools</a> <span class="separator">/</span> <span>Split PDF</span>
     </div>
 
-    <h1 class="mb-2">JSON Formatter</h1>
-    <p class="text-muted mb-4">Format, validate and beautify JSON data locally.</p>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+            <h1 class="mb-2">Split PDF</h1>
+            <p class="text-muted mb-4">Split a PDF into multiple separate files securely in your browser.</p>
+        </div>
+        <button id="favBtn_pdf-split" class="btn btn-outline btn-sm">☆ Favorite</button>
+    </div>
 
-    <div class="alert alert-error" id="jsonError"></div>
-    <div class="alert alert-success" id="jsonSuccess">Valid JSON</div>
+    <div class="privacy-badge"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4zm0 2.18l7 3.12v4.7c0 4.67-3.13 8.95-7 10.12-3.87-1.17-7-5.45-7-10.12V7.3l7-3.12zM11 14H9l3-4h2l-3 4z"/></svg> Processed completely in your browser</div>
 
     <div class="glass-panel">
-        <textarea id="jsonInput" class="form-control" style="font-family: monospace;" rows="12" placeholder='{"paste": "your JSON here"}'></textarea>
+        <!-- STEP 1: UPLOAD -->
+        <div id="pdfSplitStep1">
+            <div id="pdfDropArea" class="file-drop-area mb-4">
+                <span class="icon">📄</span>
+                <h3>Drag & Drop PDF Here</h3>
+                <p class="text-muted text-sm">or click to browse</p>
+                <input type="file" id="pdfInput" class="file-input" accept="application/pdf">
+            </div>
+        </div>
 
-        <div class="mt-3" style="display: flex; gap: 1rem;">
-            <button id="formatBtn" class="btn btn-primary">Format JSON</button>
-            <button id="minifyBtn" class="btn btn-outline">Minify</button>
-            <button id="clearJsonBtn" class="btn btn-outline">Clear</button>
-            <button id="copyJsonBtn" class="btn btn-outline">Copy</button>
+        <!-- STEP 2: CONFIGURE -->
+        <div id="pdfSplitStep2" class="hidden">
+            <div class="alert alert-success mb-3">
+                Successfully loaded <strong id="pdfFileName"></strong> (<strong id="pdfPageCount"></strong> pages).
+            </div>
+
+            <div class="form-group mb-4" style="max-width: 400px;">
+                <label class="form-label">How many separate PDFs do you want to create?</label>
+                <div class="flex gap-2">
+                    <input type="number" id="splitCountInput" class="form-control" min="2" max="20" value="2">
+                    <button id="generateRangesBtn" class="btn btn-outline">Generate</button>
+                </div>
+            </div>
+
+            <div id="rangesContainer" class="grid grid-cols-2 mb-4 hidden">
+                <!-- Inputs generated here -->
+            </div>
+
+            <div id="splitError" class="alert alert-error"></div>
+
+            <div class="flex gap-3">
+                <button id="validateSplitBtn" class="btn btn-primary hidden">Review Split</button>
+                <button id="resetSplitBtn" class="btn btn-outline">Cancel</button>
+            </div>
+        </div>
+
+        <!-- STEP 3: REVIEW & PROCESS -->
+        <div id="pdfSplitStep3" class="hidden">
+            <h3 class="mb-3">Review Split Configuration</h3>
+            <div id="splitSummary" class="mb-4 text-muted" style="background: var(--bg-color); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-light);"></div>
+
+            <p class="mb-4" style="font-weight: 600;">Everything looks correct.</p>
+
+            <div class="flex gap-3">
+                <button id="processSplitBtn" class="btn btn-primary">Split PDF Now</button>
+                <button id="backToConfigBtn" class="btn btn-outline">Go Back</button>
+            </div>
+        </div>
+
+        <!-- STEP 4: RESULT -->
+        <div id="pdfSplitStep4" class="hidden text-center py-4">
+            <div style="font-size: 3rem; color: var(--success); margin-bottom: 1rem;">✅</div>
+            <h3 class="mb-4">PDF Successfully Split!</h3>
+            <div id="downloadLinksContainer" class="grid grid-cols-2 mb-4 text-left">
+                <!-- Links injected here -->
+            </div>
+            <button id="startOverBtn" class="btn btn-outline mt-2">Start Over</button>
         </div>
     </div>
 </div>
+
+<!-- Load PDF-Lib only on pages that need it -->
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 
     </main>
     <footer class="site-footer">
