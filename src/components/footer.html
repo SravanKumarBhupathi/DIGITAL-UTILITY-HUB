@@ -1,42 +1,14 @@
-<footer class="site-footer">
+<footer class="site-footer" style="border-top: 1px solid var(--border-color); padding-top: 3rem; margin-top: 3rem; text-align: center;">
     <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="{{base_url}}index.html" class="logo mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-                    Digital Utility Hub
-                </a>
-                <p class="text-muted" style="font-size: 0.9rem;">Useful Tools. Smart Guides. Everyday Solutions.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Tools</h4>
-                <ul>
-                    <li><a href="{{base_url}}tools/index.html">All Tools</a></li>
-                    <li><a href="{{base_url}}tools/text/word-counter.html">Word Counter</a></li>
-                    <li><a href="{{base_url}}tools/developer/json-formatter.html">JSON Formatter</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Calculators</h4>
-                <ul>
-                    <li><a href="{{base_url}}calculators/index.html">All Calculators</a></li>
-                    <li><a href="{{base_url}}calculators/finance/emi-calculator.html">EMI Calculator</a></li>
-                    <li><a href="{{base_url}}calculators/everyday/age-calculator.html">Age Calculator</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="{{base_url}}about.html">About</a></li>
-                    <li><a href="{{base_url}}contact.html">Contact</a></li>
-                    <li><a href="{{base_url}}privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="{{base_url}}terms.html">Terms of Use</a></li>
-                    <li><a href="{{base_url}}disclaimer.html">Disclaimer</a></li>
-                </ul>
-            </div>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 1rem; font-weight: bold; font-size: 1.2rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="color: var(--primary); width: 24px; height: 24px;"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor" stroke="none"/></svg>
+            RadiumConvert
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Digital Utility Hub. All rights reserved.</p>
+        <p class="text-muted" style="max-width: 500px; margin: 0 auto 2rem auto;">Files are processed strictly locally in your browser.<br>They never leave your device.</p>
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+            <a href="{{base_url}}tools/index.html" class="text-muted" style="text-decoration: none;">All Tools</a>
+            <a href="{{base_url}}calculators/index.html" class="text-muted" style="text-decoration: none;">Calculators</a>
+            <a href="#" class="text-muted" style="text-decoration: none;">GitHub</a>
         </div>
     </div>
 </footer>
